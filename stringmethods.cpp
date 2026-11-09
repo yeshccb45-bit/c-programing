@@ -4,8 +4,7 @@ using namespace std;
 // This program demonstrates the use of string methods in C++
 int main() {
     string str = "Hello, World!";
-    cout << "Original string: " << str << endl;
-
+    
     // Length of the string
     cout << "Length of the string: " << str.length() << endl;
 
@@ -15,15 +14,15 @@ int main() {
 
     // Concatenation of strings
     string str2 = " How are you?";
-    string concatenated = str + str2;
-    cout << "Concatenated string: " << concatenated << endl;
+    string result = str + str2;
+    cout << "Concatenated string: " << result << endl;
 
     // Substring
-    string substring = str.substr(7, 5); // starting from index 7, length 5
-    cout << "Substring: " << substring << endl;
+    string substr = str.substr(7, 5); // starting from index 7, length 5
+    cout << "Substring: " << substr << endl;
 
     // Finding a substring
-    size_t found = str.find("World");
+    string::size_type found = str.find("World");
     if (found != string::npos) {
         cout << "'World' found at index: " << found << endl;
     } else {
@@ -32,19 +31,26 @@ int main() {
 
     // Replacing a substring
     str.replace(7, 5, "C++");
-    cout << "String after replacement: " << str << endl;
+    cout << "After replacement: " << str << endl;
 
-    // Converting to uppercase
-    for (char &c : str) {
-        c = toupper(c);
+    //empty check
+    if(str.empty()){
+        cout << "The string is empty." << endl;
+    } else {
+        cout << "The string is not empty." << endl;
     }
-    cout << "Uppercase string: " << str << endl;
+    // Clearing the string
+    str.clear();
+    cout << "After clearing, length of the string: " << str.length() << endl;
+    //append
+    //str.append("New String");
+    //cout << "After appending, the string is: " << str << endl; 
+    //insert
+    ////str.insert(4, " Inserted");
+    //cout << "After inserting, the string is: " << str << endl;
+    //erase
+    //str.erase(4, 9); // Erase 9 characters starting from index 4
+    // cout << "After erasing, the string is: " << str << endl;
 
-    // Converting to lowercase
-    for (char &c : str) {
-        c = tolower(c);
-    }
-    cout << "Lowercase string: " << str << endl;
-
-    return 0;
+return 0;
 }
